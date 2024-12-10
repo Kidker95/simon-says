@@ -65,7 +65,7 @@ export function Game(): JSX.Element {
     return (
         <div className="Game">
             <div className="game-container">
-                <h1>Simon Says Game</h1> {/* Added Title */}
+                <h1>Simon Says Game</h1>
                 <div className={`game-board ${isRotating ? "rotate" : ""}`}>
                     <div className="game-circle">
                         <button
@@ -92,19 +92,25 @@ export function Game(): JSX.Element {
                                 activeButton === "blue" ? "active" : ""
                             }`}
                         />
-                        <div className="center-circle">
-                            {!onGoing && (
-                                <span className="center-text" onClick={start}>
-                                    Start
-                                </span>
-                            )}
-                        </div>
+                        <div className="center-circle" />
                     </div>
                 </div>
                 {onGoing && <span className="score">Score: {score}</span>}
-                <button onClick={toggleRotation} className="toggle-rotation-button">
-                    {isRotating ? "Stop Rotation" : "Start Rotation"}
-                </button>
+                <div className="button-container">
+                    <button
+                        onClick={start}
+                        className="action-button"
+                        disabled={onGoing} // Disable the button if the game is running
+                    >
+                        Start
+                    </button>
+                    <button
+                        onClick={toggleRotation}
+                        className="action-button"
+                    >
+                        {isRotating ? "Stop Rotation" : "Start Rotation"}
+                    </button>
+                </div>
             </div>
         </div>
     );
