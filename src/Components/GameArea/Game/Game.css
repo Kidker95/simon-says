@@ -1,0 +1,138 @@
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #111827;
+    
+}
+
+h1 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    
+}
+
+.game-board {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin-bottom: 1.5rem; /* Adjust margin for toggle button */
+}
+
+.game-circle {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.game-button {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%; /* Makes buttons round */
+    transition: all 0.2s;
+}
+
+.game-button:hover {
+    filter: brightness(1.1);
+}
+
+.game-button.active {
+    filter: brightness(1.5);
+}
+
+.green-button {
+    top: 0;
+    left: 0;
+    background-color: #059669;
+    border-right: 4px solid black;
+    border-bottom: 4px solid black;
+}
+
+.red-button {
+    top: 0;
+    right: 0;
+    background-color: #dc2626;
+    border-left: 4px solid black;
+    border-bottom: 4px solid black;
+}
+
+.yellow-button {
+    bottom: 0;
+    left: 0;
+    background-color: #fbbf24;
+    border-right: 4px solid black;
+    border-top: 4px solid black;
+}
+
+.blue-button {
+    bottom: 0;
+    right: 0;
+    background-color: #2563eb;
+    border-left: 4px solid black;
+    border-top: 4px solid black;
+}
+
+.center-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 96px;
+    height: 96px;
+    background-color: #1f2937;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-text {
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    cursor: pointer;
+    
+}
+
+.score {
+    color: white;
+    transform: translate(0, -50px);
+    font-size: x-large;
+    
+}
+
+@keyframes rotateGame {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.game-board.rotate {
+    animation: rotateGame 5s linear infinite;
+}
+
+.toggle-rotation-button {
+    padding: 10px 20px;
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 1.5rem; /* Adjust for placement below board */
+    
+}
+
+.toggle-rotation-button:hover {
+    background-color: #4338ca;
+}
